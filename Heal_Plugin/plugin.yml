@@ -1,0 +1,28 @@
+name: Soerens_Plugin_Pack
+version: 1.0
+main: me.soeren.main.Main
+api-version: 1.15
+
+commands:
+   heal: 
+      description: This command heals you
+   KitRocket:
+      description: opens Kit Inventory
+   setspawn:
+      description: Changes your spawnpoint
+   spawn:
+      description: teleports you to the spawn
+   clearchat:
+      description: clears chat
+   balance:
+      description: shows your balance
+   pay:                                                                
+      description: pays other players
+   setMoney:
+      description: sets Money usage /setmoney <add|remove> <Player> <amount>           
+   warp:
+      description: warps you
+   setwarp:
+      description: creates warp 
+   listwarp:
+      description: lists every warp                     
