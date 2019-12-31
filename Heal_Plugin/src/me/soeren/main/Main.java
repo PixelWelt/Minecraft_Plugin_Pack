@@ -14,6 +14,9 @@ import me.soeren.commands.SpawnCommand;
 import me.soeren.commands.economy.BalanceCommand;
 import me.soeren.commands.economy.PayCommand;
 import me.soeren.commands.economy.SetMoneyCommand;
+import me.soeren.commands.jails.JailPlayerCommand;
+import me.soeren.commands.jails.addJailCommand;
+import me.soeren.commands.jails.unJailCommand;
 import me.soeren.commands.warp.ListWarpCommand;
 import me.soeren.commands.warp.SetWarpCommand;
 import me.soeren.commands.warp.WarpCommand;
@@ -36,7 +39,10 @@ public class Main extends JavaPlugin{
 		getCommand("heal").setExecutor(new HealCommand());
 		getCommand("spawn").setExecutor(new SpawnCommand());
 		
-	
+		//jailcommands
+		getCommand("addjail").setExecutor(new addJailCommand());
+		getCommand("unjail").setExecutor(new unJailCommand());
+		getCommand("jail").setExecutor(new JailPlayerCommand());
 		
 		//Admincommands
 		getCommand("setspawn").setExecutor(new SetSpawnCommand());

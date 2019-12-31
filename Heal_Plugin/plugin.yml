@@ -25,4 +25,10 @@ commands:
    setwarp:
       description: creates warp 
    listwarp:
-      description: lists every warp                     
+      description: lists every warp
+   jail:
+      description: jails player
+   addjail:
+      description: adds a Jail
+   unjail:
+      description: frees Player                                 
