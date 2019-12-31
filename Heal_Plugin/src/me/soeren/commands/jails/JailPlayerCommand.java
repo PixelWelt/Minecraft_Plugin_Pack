@@ -57,10 +57,10 @@ public class JailPlayerCommand implements CommandExecutor{
 						}
 					
 					}else {
-						
+						player.sendMessage("Konnte den Spieler nicht finden");
 					}
 				}else {
-					
+					player.sendMessage("Falsche Syntax");
 				}
 			}
 			

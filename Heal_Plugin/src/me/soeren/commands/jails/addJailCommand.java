@@ -18,16 +18,25 @@ public class addJailCommand implements CommandExecutor{
 		
 		if(sender instanceof Player) {
 			Player player = (Player) sender;
-			if(arg3.length >= 0) {
-				config.set("Jail.Jails."+arg3[0]+".X", player.getLocation().getX());
-				config.set("Jail.Jails."+arg3[0]+".Y", player.getLocation().getY());
-				config.set("Jail.Jails."+arg3[0]+".Z", player.getLocation().getZ());
-				config.set("Jail.Jails."+arg3[0]+".Yaw", player.getLocation().getYaw());
-				config.set("Jail.Jails."+arg3[0]+".Pitch", player.getLocation().getPitch());
-				config.set("Jail.Jails."+arg3[0]+".World", player.getWorld().getName());
-				@SuppressWarnings("unchecked")
-				ArrayList<String> jaillist = (ArrayList<String>) config.get("Jail.List");
-				jaillist.add(arg3[0]);
+			if(arg3.length == 1) {
+				int x =(int) player.getLocation().getX();
+				int y = (int) player.getLocation().getY();
+				int z = (int) player.getLocation().getZ();
+				int yaw = (int) player.getLocation().getYaw();
+				int pitch = (int) player.getLocation().getPitch();
+				String world = player.getLocation().getWorld().getName();
+				
+				config.set("Jail.Jails."+arg3[0]+".World", world);
+				config.set("Jail.Jails."+arg3[0]+".X", x);
+				config.set("Jail.Jails."+arg3[0]+".Y", y);
+				config.set("Jail.Jails."+arg3[0]+".Z", z);
+				config.set("Jail.Jails."+arg3[0]+".Pitch", pitch);
+				config.set("Jail.Jails."+arg3[0]+".Yaw", yaw);
+				
+				
+				ArrayList<String> jaillist = (ArrayList<String>) config.getStringList("Jail.List");
+				String jail = arg3[0];
+				jaillist.add(jail);
 				config.set("Jail.List", jaillist);
 				Main.getPlugin().saveConfig();
 				
