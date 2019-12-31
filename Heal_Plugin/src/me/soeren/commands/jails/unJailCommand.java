@@ -32,6 +32,8 @@ public class unJailCommand implements CommandExecutor {
 					Location location = new Location(world, x, y, z, yaw, pitch);
 					target.setGameMode(GameMode.SURVIVAL);
 					target.teleport(location);
+					
+					player.sendMessage(target.getDisplayName()+" Wurde befreit");
 				}
 			}else {
 				
