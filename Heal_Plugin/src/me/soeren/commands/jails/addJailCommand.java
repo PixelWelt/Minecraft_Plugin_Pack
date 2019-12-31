@@ -17,7 +17,7 @@ public class addJailCommand implements CommandExecutor{
 		FileConfiguration config = Main.getPlugin().getConfig();
 		if(sender instanceof Player) {
 			Player player = (Player) sender;
-			if(arg3.length == 1) {
+			if(arg3.length >= 0) {
 				config.set("Jail.Jails."+arg3[0]+".X", player.getLocation().getX());
 				config.set("Jail.Jails."+arg3[0]+".Y", player.getLocation().getY());
 				config.set("Jail.Jails."+arg3[0]+".Z", player.getLocation().getZ());
