@@ -20,19 +20,21 @@ public class unJailCommand implements CommandExecutor {
 			Player player = (Player) sender;
 			if(arg3.length == 1) {
 				Player target = Bukkit.getPlayer(arg3[0]);
-				if(target != null) {
-					FileConfiguration config = Main.getPlugin().getConfig();
-					int x = config.getInt("Jail.Prisoner."+target+".X");
-					int y = config.getInt("Jail.Prisoner."+target+".Y");
-					int z = config.getInt("Jail.Prisoner."+target+".Z");
-					int yaw = config.getInt("Jail.Prisoner."+target+".Yaw");
-					int pitch = config.getInt("Jail.Prisoner."+target+".Pitch");
-					World world = Bukkit.getWorld(config.getString("Jail.Prisoner."+target+".World"));
-					
-					Location location = new Location(world, x, y, z, yaw, pitch);
+				
+				if(!(target == null)) {
 					target.setGameMode(GameMode.SURVIVAL);
-					target.teleport(location);
 					
+					FileConfiguration config = Main.getPlugin().getConfig();
+
+					int x = (int) config.getDouble("Jail.Prisoner."+target.getDisplayName()+".X");
+					int y = (int) config.getDouble("Jail.Prisoner."+target.getDisplayName()+".Y");
+					int z = (int) config.getDouble("Jail.Prisoner."+target.getDisplayName()+".Z");
+					int yaw = (int) config.getDouble("Jail.Prisoner."+target.getDisplayName()+".Yaw");
+					int pitch = (int) config.getDouble("Jail.Prisoner."+target.getDisplayName()+".Pitch");
+					World world = Bukkit.getWorld(config.getString("Jail.Prisoner."+target.getDisplayName()+".World"));
+					Location location = new Location(world, x, y, z, yaw, pitch);
+					target.teleport(location);
+
 					player.sendMessage(target.getDisplayName()+" Wurde befreit");
 				}
 			}else {
